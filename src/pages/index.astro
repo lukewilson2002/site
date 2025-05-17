@@ -3,6 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Image } from 'astro:assets';
+import profile from '../images/me.jpeg';
 ---
 
 <!doctype html>
@@ -13,24 +15,103 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>The Homepage of Luke Wilson</h1>
-			<p>
-				Welcome to my website! I'm a software developer and I love to write about technology, philosophy, and
-				the intersection of the two. I hope you enjoy reading my posts.
-			</p>
-			<p>
-				Why do I believe evolution is so important when considering psychology, nature, and the very world as
-				we know it? Because evolution has shaped and molded these very things we take as fact. Evolution is our
-				God that crafted our dizzying belief that nothing else could ever be.
-			</p>
-			<p>
-				But one could never be more wrong.
-			</p>
-			<p>
-				Nothing on the Earth today was created without intention. It's all a product of evolution. Everything
-				serves some kind of purpose because of the evolutionary algorithm.
-			</p>
+			<div class="profile">
+				<Image src={profile} alt="My face." width={250} />
+				<div>
+					<span class="name">Luke Wilson</span><br/>
+					lukewilson.dev@gmail.com<br/>
+					<div class="details">
+						Software Engineer
+					</div>
+				</div>
+			</div>
+
+			<hr/>
+
+			<section>
+				<h2>Projects</h2>
+				<ul>
+					<li><a href="https://git.frop.prof/luke/qedit">Qedit, text editor</a></li>
+					<li><a href="https://git.frop.prof/luke/autotrader">Autotrader, Forex automated trading algorithm backtesting</a></li>
+					<li><a href="https://github.com/lukewilson2002/rsc">RSC, scientific calculator as a library for Rust</a></li>
+					<li><a href="https://github.com/lukewilson2002/oxc">OXC, the first (mostly unworking) C compiler in Rust</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Links</h2>
+				<ul>
+					<li><a href="https://github.com/lukewilson2002">GitHub</a></li>
+					<li><a href="https://medium.com/@fivemoreminix">Medium</a></li>
+					<li><a href="https://git.frop.prof">Gitea</a></li>
+					<li><a href="https://frop.prof">Hub Homepage</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Selected Publications</h2>
+				<ul>
+					<li><a href="https://levelup.gitconnected.com/compiling-brainf-to-webassembly-with-go-8838519e3c8b?sk=4df3cca700f0abb6a23a6c8a07d168fb">Compiling Brainf*** to WebAssembly with Go</a></li>
+					<li><a href="https://medium.com/swlh/crafting-compilers-intro-47d7a6985665?sk=ab17d8cd05b82618ea4a4d7de36b765f">What Are Compilers And Programming Languages</a></li>
+					<li><a href="https://medium.com/data-science/understanding-compilers-for-humans-version-2-157f0edb02dd">Understanding Compilers — For Humans (Version 2)</a></li>
+					<li><a href="https://medium.com/@fivemoreminix/understanding-compilers-for-humans-ba970e045877">Understanding Compilers — For Humans</a></li>
+					<li><a href="https://medium.com/@fivemoreminix/making-a-brainf-ck-to-c-compiler-in-rust-10f0c01a282d">Making a Brainf*ck to C Compiler in Rust</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>My Favorite Music</h2>
+				<br/>
+				<h4>Rock</h4>
+				<ul>
+					<li>Creed</li>
+					<li>Alice in Chains</li>
+					<li>Matchbox Twenty</li>
+					<li>Three Days Grace</li>
+					<li>Red Hot Chili Peppers</li>
+					<li>Linkin Park</li>
+					<li>The Goo Goo Dolls</li>
+					<li>Counting Crows</li>
+					<li>Five Finger Death Punch</li>
+					<li>Drowning Pool</li>
+				</ul>
+				<h4>Country</h4>
+				<ul>
+					<li>Morgan Wallen</li>
+					<li>Luke Combs</li>
+					<li>Zach Bryan</li>
+					<li>Faith Hill</li>
+					<li>Blake Shelton</li>
+				</ul>
+				<h4>Misc</h4>
+				<ul>
+					<li>Coldplay</li>
+					<li>Bastille</li>
+					<li>Empire Of The Sun</li>
+				</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.profile {
+		display: flex;
+		gap: 1em;
+		margin-bottom: 2em;
+	}
+
+	.profile div {
+		font-size: 0.9em;
+	}
+
+	.profile .name {
+		font-size: 1.3em;
+	}
+
+	.profile .details {
+		font-size: 0.8em;
+	}
+
+	section {
+		padding: 1rem 0;
+	}
+</style>
